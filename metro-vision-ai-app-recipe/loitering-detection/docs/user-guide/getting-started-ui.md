@@ -17,10 +17,10 @@ Server's REST API directly.
 1. **Clone the Suite**:
 
    ```bash
-   git clone --filter=blob:none --sparse --branch main https://github.com/open-edge-platform/edge-ai-suites.git
-   cd edge-ai-suites
-   git sparse-checkout set metro-ai-suite
-   cd metro-ai-suite/metro-vision-ai-app-recipe/
+   git clone --filter=blob:none --sparse --branch main https://github.com/open-edge-platform/metro-ai-suites.git
+   cd metro-ai-suites
+   git sparse-checkout set metro-vision-ai-app-recipe
+   cd metro-vision-ai-app-recipe/
    ```
 
 2. **Setup Application and Download Assets**:

@@ -65,7 +65,7 @@ a per-instance MQTT topic and WebRTC peer-id (e.g. `object_tracking_1`).
     [Loitering Detection Console UI](../getting-started-ui.md) can launch any model placed under
     `src/dlstreamer-pipeline-server/models/` instead, picked per stream at start time - no
     pipeline or `config.json` change needed either way. `gvadetect` runs with
-    `inference-region=0`, so detection/tracking analyze the full frame, not just the configured
+    `inference-region=0`, so detection happens on the full frame, not just the configured
     zone polygons.
     -   **Tracking Element:** Incorporates `gvatrack` with the setting `tracking-type=zero-term` to follow objects over time.
     -   **Zone & Dwell-Time Analytics:** The `gvaanalytics` element evaluates each tracked
