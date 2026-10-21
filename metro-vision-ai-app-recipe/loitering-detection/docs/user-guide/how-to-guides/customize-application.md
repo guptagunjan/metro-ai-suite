@@ -261,8 +261,8 @@ The reused `loitering_watermark` element reads the same dwell-time metadata and 
 per-object dashboard line (`<zone_id>: <type>-<id> : <dwell_time>s`) for every tracked object
 that has zone/dwell data, regardless of its detected class name (so it works the same whether
 the launched model reports `pedestrian`, `person`, or anything else) - turning red once dwell
-time crosses the configured `loitering-threshold` (default `5.0` seconds). See
-[Getting started - Loitering Detection Console UI](../getting-started-ui.md) for how to toggle
+time crosses the configured `loitering-threshold` (default `5.0` seconds). See [Get Started](../get-started.md) for how to tune or disable this overlay via REST parameters at
+launch time & [Getting started - Loitering Detection Console UI](../getting-started-ui.md) for how to toggle
 this overlay per stream from the Console UI.
 
 

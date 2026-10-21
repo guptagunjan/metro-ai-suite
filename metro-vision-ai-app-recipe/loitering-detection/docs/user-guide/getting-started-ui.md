@@ -26,9 +26,7 @@ Server's REST API directly.
 2. **Setup Application and Download Assets**:
    - Use the installation script to configure the application and download required models. Use
      the `-ui` app name variant so the Console UI service is added to the generated
-     `docker-compose.yml` (a plain `./install.sh loitering-detection` never adds it, so
-     smart-parking/smart-intersection deployments - which share the same compose template - are
-     unaffected either way):
+     `docker-compose.yml` (a plain `./install.sh loitering-detection` never adds it):
 
      ```bash
      ./install.sh loitering-detection-ui
@@ -47,10 +45,6 @@ Server's REST API directly.
      ```bash
      docker compose up -d
      ```
-
-     > [!NOTE]
-     > Run `./sample_start.sh` separately (no flags) if you also want the 4 fixed sample
-     > pipelines - the Console UI starts and stops its own pipelines independently of that script.
 
      <details>
      <summary>
@@ -73,15 +67,18 @@ Server's REST API directly.
    - Open a browser and go to `https://localhost/console/` to access the Console UI.
      - Change `localhost` to your host IP if you are accessing it remotely.
 
-3. **Starting pipelines** (required):
+     > [!NOTE]
+     > Run `./sample_start.sh` separately (no flags) if you also want the 4 fixed sample
+     > pipelines - the Console UI starts and stops its own pipelines independently of that script.
+
+3. **Starting pipelines**:
    - **Number of pipelines** defaults to 1, each with its own **Pipeline N** card below it for
-     **Source**, **Model** and **Device** - all pre-filled with working defaults, so you can
-     click **Start pipelines** right away to see video with live detections - no field needs to
+     **Source**, **Model** and **Device** - all pre-filled with defaults, so you can click
+     **Start pipelines** right away to see video with live detections - no field needs to
      be touched first. Raise **Number of pipelines** to add more cards (e.g. to compare two
      models on the same source side by side).
    - Each pipeline gets its own panel titled **Pipeline N · source · model · device**, with a live
-     WebRTC view and a per-object loiter table underneath it. Clicking a card's header collapses or
-     expands just that card - useful for focusing on one section at a time on a short screen.
+     WebRTC view and a per-object loiter table underneath it.
    - Need a different zone first? See [Changing the zone](#changing-the-zone) below - zones are
      set by drawing on a pipeline's video after it starts, not from the rail.
 
