@@ -82,9 +82,14 @@ Both the Console UI (`console-addon/console/api_pipelines.py`, function `_launch
 sample (`sample_start.sh`) call `POST /pipelines/{name}/{version}` with a `parameters` object
 matching `config.json`'s schema:
 
+> [!NOTE]
+> The Console UI only ever launches the `object_tracking_<device>` pipelines (matched by exact
+> name). Other pipeline families in `config.json`, such as `loiter_detect_roi_*`, are never
+> started from the UI.
+
 | Request key | Element it targets | What it sets |
 | --- | --- | --- |
-| `detection-properties` | `detection` (`gvadetect`) | `model`, `device`, `model-instance-id`, `model_proc` |
+| `detection-properties` | `detection` (`gvadetect`) | `model`, `device`, `model-instance-id`, `model_proc` (The `object_tracking_*` pipelines bake only `model=`, not `model_proc=`) |
 | `analytics-properties` | `analytics` (`gvaanalytics`) | `config` (a zone file under `src/dlstreamer-pipeline-server/zones/`, see [Adding a new stream](./customize-application.md#adding-a-new-stream)), or `zones` - the file's zones, or a single custom rectangle, never both (see [Getting started - Loitering Detection Console UI](../getting-started-ui.md#changing-the-zone)) |
 | `loitering-watermark-properties` | `loitering_watermark` | `quiet-mode`, `loitering-threshold` |
 
