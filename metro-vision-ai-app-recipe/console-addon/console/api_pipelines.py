@@ -52,9 +52,6 @@ def _launch(source_id, model_id, device, zone, rtsp=None, watermark=False):
         "device": device,
         "model-instance-id": _model_instance_id(model_entry["model"], device, peer_id),
     }
-    # Hyphenated: DLSPS matches GObject property names, so a "model_proc" key is silently ignored.
-    if model_entry.get("model_proc"):
-        detection_props["model-proc"] = model_entry["model_proc"]
 
     zone = zone or None
     analytics_props = {"zones": analytics_zones_json(zone)}

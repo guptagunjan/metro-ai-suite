@@ -89,7 +89,7 @@ matching `config.json`'s schema:
 
 | Request key | Element it targets | What it sets |
 | --- | --- | --- |
-| `detection-properties` | `detection` (`gvadetect`) | `model`, `device`, `model-instance-id`, `model_proc` (The `object_tracking_*` pipelines bake only `model=`, not `model_proc=`) |
+| `detection-properties` | `detection` (`gvadetect`) | `model`, `device`, `model-instance-id`. No `model-proc` is baked or sent: models that embed their pre/post-processing in the IR (RF-DETR, YOLO) need none, and for the shipped `pedestrian-and-vehicle-detector-adas-0001` (an older SSD-style model whose IR has no class names) DLSPS applies the `.json` that `install.sh` downloads next to it. Without that file it still detects, but objects are labelled `class 2` instead of `pedestrian`. |
 | `analytics-properties` | `analytics` (`gvaanalytics`) | `config` (a zone file under `src/dlstreamer-pipeline-server/zones/`, see [Adding a new stream](./customize-application.md#adding-a-new-stream)), or `zones` - the file's zones, or a single custom rectangle, never both (see [Getting started - Loitering Detection Console UI](../getting-started-ui.md#changing-the-zone)) |
 | `loitering-watermark-properties` | `loitering_watermark` | `quiet-mode`, `loitering-threshold` |
 

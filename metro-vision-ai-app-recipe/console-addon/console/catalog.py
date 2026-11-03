@@ -108,14 +108,6 @@ def discover_models(force=False):
                     shown = f"{parent}/{stem}" if parent else stem
                 label = f"{shown} ({precision})" if precision else shown
 
-                model_proc = None
-                same_dir_proc = os.path.join(root, stem + ".json")
-                parent_proc = os.path.join(os.path.dirname(root), stem + ".json")
-                if os.path.isfile(same_dir_proc):
-                    model_proc = same_dir_proc
-                elif os.path.isfile(parent_proc):
-                    model_proc = parent_proc
-
                 shape = _ir_input_shape(xml_path)
                 compatibility, detail = _model_compatibility(shape)
 
@@ -123,7 +115,6 @@ def discover_models(force=False):
                     "id": ident,
                     "label": label,
                     "model": xml_path,
-                    "model_proc": model_proc,
                     "compatibility": compatibility,
                     "input_shape": shape,
                     "compatibility_detail": detail,

@@ -145,11 +145,14 @@ Each pipeline card has its own:
 
 The **Model** dropdown lists whatever is under the mounted model store
 (`loitering-detection/src/dlstreamer-pipeline-server/models/`) as `<model>.xml` + `<model>.bin`
-pairs, with an optional `<model>.json` model_proc beside them. Drop a new model's files into
+pairs. Drop a new model's files into
 that folder using the same layout and click the refresh button (&#x27F3;) next to **Model** -
-no restart or code change is needed. A model whose IR has a dynamic input shape is still listed
-but flagged, since GPU and NPU reject that shape and returns no detections for it;
-re-export the model with a fixed input size to use it on every device.
+no restart or code change is needed. Models that embed their settings in the IR (RF-DETR, YOLO)
+need nothing else. An older SSD-style model that relies on a model-proc `.json` must follow
+DLSPS's own layout (`models/<name>/<version>/`, with the `.json` in the `<version>` folder, as
+for `models/intel/pedestrian-and-vehicle-detector-adas-0001`). A model whose IR has a dynamic 
+input shape is still listed but flagged, since GPU and NPU reject that shape and returns no 
+detections for it; re-export the model with a fixed input size to use it on every device.
 
 ### Changing the video source
 
