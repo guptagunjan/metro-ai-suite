@@ -112,8 +112,3 @@ def api_stream_ready(peer_id):
         return jsonify({"ready": r.status_code != 404, "status": r.status_code})
     except requests.RequestException:
         return jsonify({"ready": False, "status": 0})
-
-
-# --------------------------------------------------------------------------
-# 9. Entry point
-# --------------------------------------------------------------------------
