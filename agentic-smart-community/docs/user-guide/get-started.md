@@ -2,7 +2,7 @@
 
 **Agentic Smart Community** is an AI Agent-native video analysis platform built around the Model Context Protocol (MCP). This guide installs the MCP server and its dependent services, then connects an agent host. You can then register a custom use case to tailor the video-analysis workflow to your camera-monitoring requirements.
 
-For the validated use cases, e.g., Fridge Monitor, Child Safety, and Elder Wakeup reference demo, including user-provided video setup, see [Ready-to-Run Demo](./get-started/ready-to-run-demo.md).
+For a ready-to-run demo with an open-source video, see [Ready-to-Run Demo](./get-started/ready-to-run-demo.md).
 
 ## Prerequisites
 
@@ -87,6 +87,7 @@ bash setup_docker.sh
 
 > [!NOTE]
 >
+> - For the script's startup workflow, command options, and configuration/data handling, see [Docker Setup Script Reference](./how-to-guides/setup-docker.md).
 > - This guide uses the stable release `2026.3.0` by default; to apply the latest code changes, rebuild the images from source as described in [Build the service images from source](#build-the-service-images-from-source).
 > - Use `bash setup_docker.sh --light` to reuse an already warm serving and start only `multilevel-video-understanding`, `videostream-analytics`, and `smart-community-mcp-server`.
 > - Use `bash setup_docker.sh --light-down` to stop the app tier while leaving `model-serving-llm-scaler` running (avoids model reload), or `bash setup_docker.sh --down` to stop all four services.
